@@ -5,10 +5,12 @@
     background-size:cover;
 }
 .big-header {
-  
-  margin-left: 35px;
+  width:95.5%;
+  margin-left: 20px;
   background-color: black;
-  border:10px outset black
+  border:10px outset black;
+  
+  
   
 }
 
