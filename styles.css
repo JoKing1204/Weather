@@ -1,0 +1,69 @@
+.img-wallpaper {
+    background-image: url("images/Penguins.jpg");
+    background-color: #cccccc;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.big-header {
+  
+  margin-left: 35px;
+  background-color: black;
+  border:10px outset black
+  
+}
+
+.smaller-header{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-right: 250px;
+  background-color:black;
+  color:white;
+  border: 10px outset black;
+  margin-bottom: 50px;
+  width:50px;
+  height:auto;
+  margin-left:350px;
+  padding-left:220px
+  
+
+  
+}
+.paragraph {
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 100px;
+  background-color:black;
+  color:white;
+  border: 10px outset black;
+}
+.link-helper{
+  color:white;
+  background-color: black;
+  font-size:20px;
+  padding-left:30px;
+  text-decoration: none;
+  float:left;
+  border: 10px outset black;
+  padding-right:30px;
+  margin-left:30px;
+  margin-top:30px
+
+  
+}
+a:hover{
+  background-color: white;
+  color:black;
+  border: 10px outset white;
+
+}
+html{
+  scroll-behavior: smooth;
+}
+.img-pic{
+  width:80%;
+  height:auto;
+  margin-left:100px;
+  border:10px solid black;
+  border-spacing: 8px;
+  margin-bottom:40px;
+
+}
