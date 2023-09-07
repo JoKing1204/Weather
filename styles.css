@@ -21,10 +21,10 @@
   color:white;
   border: 10px outset black;
   margin-bottom: 50px;
-  width:50px;
+  width:2%;
   height:auto;
-  margin-left:350px;
-  padding-left:220px
+  margin-left:30%;
+  padding-left:17%;
   
 
   
@@ -67,5 +67,16 @@ html{
   border:10px solid black;
   border-spacing: 8px;
   margin-bottom:40px;
+
+}
+@media only screen and (max-width:620px){
+  .img, .big-header, .img-pic{
+    width:100%;
+  }
+  .smaller-header{
+    width:100%;
+    margin-left: 0%;
+    padding-left:45%
+  }
 
 }
