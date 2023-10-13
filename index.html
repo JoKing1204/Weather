@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Polar Guard </title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/Polar_guard/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Polar_guard/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Polar_guard/images/favicon-16x16.png">
-    <link rel="manifest" href="/Polar_guard/images/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="img-wallpaper ">
-
-    <div>
-      <div>
-        <nav>
-          <table>
-            <td><a href="#Our Vision"  class="link-helper">Our Vision</a></td>
-            <td><a href="#Mission" class="link-helper">Our Mission</a></td>
-            <td><a href="#goals" class="link-helper">Polar Guard's Goals</a></td>
-            <td><a href="#help" class="link-helper">How you can help!</a></td>
-            <td><a href="#pics" class="link-helper">Pictures</a></td>
-          </table>
-        </nav>
-        <h1 class="big-header"><img src="images/Logo.jpeg"/></h1>
+  <body class="b">
+    <div class="card">
+      <div class="search">
+        <input type="text" placeholder="Enter City Name" spellcheck="false" />
+        <button><img src="weather-app-img/images/search.png" /></button>
       </div>
-      
-      
-      
-
-      <section id="Our Vision">
-      <h2 class="smaller-header">Our Vision</h2>
-      <p class="paragraph">PolarGuard envisions a world where penguins thrive in their natural habitats, where the icy landscapes echo with their joyful calls, and where the delicate balance of polar ecosystems remains intact. We also aim to help those in the coastal regions, and try to prevent any more harm to be done with them and their habitats. </p>
-      </section>
-      <section id="Mission">
-      <h2 class="smaller-header">Mission:</h2>
-      <p class="paragraph">PolarGuard is a charitable organization dedicated to the preservation and protection of penguins and their fragile ecosystems in polar/coastal regions. Our mission is to raise awareness about the challenges these adorable creatures face due to climate change, habitat loss, and human interference, while also taking active steps to ensure their survival for generations to come.</p>
-      </section>
-      <section id="goals">
-        <h2 class="smaller-header">Goals:</h2>
-        <p><ol class="paragraph">
-          <li>Conservation Efforts: PolarGuard focuses on implementing and supporting conservation projects that directly impact penguins and their habitats. This includes measures to reduce plastic pollution, safeguarding nesting grounds, and promoting sustainable fishing practices.</li>
-          <li>Research and Monitoring: We fund scientific research to better understand penguin behavior, migratory patterns, and the effects of climate change on their habitats. This knowledge informs our conservation strategies and helps us adapt to emerging challenges.</li>
-          <li>Education and Outreach: PolarGuard believes that spreading awareness is key to creating lasting change. We develop educational programs for schools, communities, and online platforms, aiming to inspire a new generation of environmental stewards who are passionate about protecting penguins.</li>
-          <li>Advocacy: We advocate for stronger environmental policies and regulations that protect penguins and their habitats. By collaborating with governments, international organizations, and other NGOs, we work to ensure the long-term survival of these beloved creatures.</li>
-          <li>Collaboration: PolarGuard actively collaborates with local communities, scientists, governments, and other conservation organizations. We believe that by working together, we can amplify our impact and achieve greater results for penguin conservation.</li>
-        </ol></p>
-      </section>
-      <section id="help">
-        <h2 class="smaller-header">Your Help:</h2>
-        <p><ol class="paragraph">
-          <li>Donations: Your financial support directly contributes to the conservation efforts of PolarGuard. Every donation helps us fund research, implement conservation projects, and educate the public about the importance of saving penguins.</li>
-          <li>Volunteer Opportunities: PolarGuard offers opportunities for individuals to get involved in various capacities, from participating in beach cleanups to assisting with educational programs.</li>
-          <li>Spread Awareness: Use your voice and social media platforms to raise awareness about penguin conservation. Share our content, engage in discussions, and encourage others to join the cause.</li>
-          <li>Support Sustainable Practices: Make eco-friendly choices in your daily life to reduce your carbon footprint and minimize harm to penguin habitats and other ecosystems.</li>
-        </ol></p>
-      </section>
-      <section id="pics">
-        <h2 class="smaller-header">Pictures</h2>
-        <img src="images/beach-clean-transformed.jpeg" class="img-pic"/>
-        <img src="images/clean-transformed.jpeg" class="img-pic"/>
-      </section>
-      
+      <div class="error">
+        <p>Invalid City Name</p>
+      </div>
+      <div class="weather">
+        <img src="weather-app-img/images/rain.png" class="weather-icon" />
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">New York</h2>
+        <div class="details">
+            <div class="col">
+                <img src="weather-app-img/images/humidity.png">
+                <div>
+                    <p class="humidity">50%</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="col">
+                    <img src="weather-app-img/images/wind.png">
+                    <div>
+                        <p class="wind">10 mph</p>
+                        <p>Wind Speed</p>
+                    </div>
+            </div>
+        </div>
+      </div>
     </div>
-    
+    <script>
+        const apiKey = "68017f6e52f9683cc79729bf9b9bfdb6"
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?"
+
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon")
+        async function checkWeather(city){
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`)
+            var date = await response.json();
+           
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°F";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
+
+            if(data.weather[0].main =="Clouds"){
+                weatherIcon.src = "weather-app-img/images/clouds.png";
+            }
+            else if(data.weather[0].main =="Clear"){
+                weatherIcon.src = "weather-app-img/images/clear.png";
+            }
+            else if(data.weather[0].main =="Rain"){
+                weatherIcon.src = "weather-app-img/images/rain.png";
+            }
+            else if(data.weather[0].main =="Drizzle"){
+                weatherIcon.src = "weather-app-img/images/drizzle.png";
+            }
+            else if(data.weather[0].main =="Mist"){
+                weatherIcon.src = "weather-app-img/images/mist.png";
+            }
+            document.querySelector(".weather").style.display = "block";
+        }
+
+        searchBtn.addEventListener("click", () =>{
+            checkWeather(searchBox.value);
+        })
+
+        checkWeather();
+    </script>
+
   </body>
 </html>
