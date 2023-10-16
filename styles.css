@@ -71,14 +71,15 @@
   display: flex;
   align-items: center;
   text-align: left;
+  margin-left: 50px;
 }
-.col img {
-  width: 40px;
+.cols {
+  width: 50px;
   margin-right: 10px;
 }
 .humidity,
 .wind {
-  font-size: 28px;
+  font-size: 20px;
   margin-top: -6px;
 }
 .weather {
